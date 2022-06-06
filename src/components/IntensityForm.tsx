@@ -4,12 +4,13 @@ import { useAppSelector, useAppDispatch } from '../app/hooks'
 
 import { increaseLevel, deacreaseLevel } from '../features/lightLevel/lightLevelSlice'
 import { Fetcher } from '../utils/Fetcher'
+import { getLevels } from '../utils/Common'
 
 function IntensityForm() {
 
 	const apiUrl = useAppSelector(state => state.lightLevels.apiUrl)
 	const dispatch = useAppDispatch()
-	const levels = [0,1,3,10,50,100]
+	const levels = getLevels()
 
 	const [index, setIndex] = useState(useAppSelector(state => state.lightLevels.index))
 
@@ -35,7 +36,7 @@ function IntensityForm() {
 
 
   return (
-	<div className="intensity-form">
+	<div className="intensity-form" data-testid="intensity-form">
 		<div>
 			<button className="button button-increase" onClick={() => { increase() }}> + </button>
 		</div>

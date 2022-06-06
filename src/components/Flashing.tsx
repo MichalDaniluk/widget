@@ -17,7 +17,7 @@ const Flashing = () => {
 	async function set(value:boolean) {
 		const status = toggleOption(value)
 
-		Fetcher.fetchTimeout( apiUrl+'/flashing/'+status, 5000 )
+		Fetcher.fetchTimeout( apiUrl+'/flashing/', 5000 )
 		.then(response => response.json())
 		.then(()=> dispatch(setFlashing(status)))
 		.catch(() => {
