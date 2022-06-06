@@ -20,7 +20,8 @@ function IntensityForm() {
 		.then(response => response.json())
 		.then(()=>dispatch(increaseLevel()))
 		.catch(() => {
-			alert('Nie mozna zwiekszyc wartosci, brak powierdzenia z urzadzenia')
+			dispatch(increaseLevel()) // for test only
+			//alert('Nie mozna zwiekszyc wartosci, brak powierdzenia z urzadzenia')
 		});
 	}
 
@@ -30,7 +31,8 @@ function IntensityForm() {
 		.then(response => response.json())
 		.then(()=>dispatch(deacreaseLevel()))
 		.catch(() => {
-			alert('Nie mozna zmniejszyc wartosci, brak powierdzenia z urzadzenia')
+			dispatch(deacreaseLevel()) // for test only
+			//alert('Nie mozna zmniejszyc wartosci, brak powierdzenia z urzadzenia')
 		});
 	}
 

@@ -26,10 +26,10 @@ const Flashing = () => {
 	}
 
   return (
-	<div className="option option-item">
-		<label className={`${error ? "error" : ""}`}>Flashing</label>
-		<input type="checkbox" onClick={ () => set(currentStatus) } />
-	</div>
+	<div className="grid grid-cols-2 form-check form-switch mt-4">
+    	<label className={`${error ? "error form-check-label inline-block text-white" : "form-check-label inline-block text-white"}`} htmlFor="flexSwitchCheckChecked">Flashing</label>
+		<input onChange={ () => set(currentStatus) } className="ml-12 form-check-input appearance-none w-9  rounded-full float-left h-5 align-top bg-white bg-no-repeat bg-contain bg-gray-300 focus:outline-none cursor-pointer shadow-sm" type="checkbox" role="switch" id="flexSwitchCheckChecked" checked={currentStatus}/>
+  	</div>
   )
 }
 

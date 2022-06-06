@@ -10,14 +10,14 @@ const App = () => {
 
     <div className="App">
 		<div className="panel" data-testid="app">
-			<Widget name="HT8"/>
-			<Widget name="HT8" />
-			<Widget name="HT8" />
-			<Widget name="HT8" />
-			<Widget name="HT8" />
-			<Widget name="HT8" />
-			<Widget name="HT8" />
-			<Widget name="HT8" />
+			<Widget name="APH 08"/>
+			<Widget name="THR 08" />
+			<Widget name="PAPI 08" />
+			<Widget name="RWE REH" />
+			<Widget name="SFL 26" />
+			<Widget name="APH 26" />
+			<Widget name="THR 26" />
+			<Widget name="PAPI 26" />
 		</div>
     </div>
   );
