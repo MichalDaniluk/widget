@@ -1,11 +1,1 @@
-.main-container {
-	display:grid;
-	grid-template-columns:  1fr 4fr;
-	background-color: blue;
-	border-radius:.3rem;
-	padding:1rem;
-}
 
-.widget-name {
-	color:white;
-}
