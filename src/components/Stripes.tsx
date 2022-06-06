@@ -22,7 +22,7 @@ const Stripes = () => {
 
 	return (
 	<div className="stripe-container">
-		{arr.map((key) => <div key={key} className="stripe-item"></div>)}
+		{arr.map((i, key) => <div key={key} className="stripe-item"></div>)}
 	</div>
   )
 }

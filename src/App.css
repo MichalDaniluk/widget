@@ -1,9 +1,24 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 body {
 	background-color:#01142c;
+	padding:1rem;
 }
 
-.panel {
-	display:grid;
-	grid-template-columns: auto auto auto auto;
-	grid-gap:0.8rem;
+@layer components {
+
+	.panel {
+		@apply grid grid-cols-4 gap-2
+	}
+
+	.button {
+		@apply p-2 pl-8 pr-8 m-2 font-bold text-white
+	}
+
+	.form-switch {
+		@apply pl-0
+	}
+
 }
