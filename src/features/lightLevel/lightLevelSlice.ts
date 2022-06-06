@@ -34,7 +34,7 @@ export const lightLevelSlice = createSlice({
 		state.flashing = action.payload
 	},
 	setFlashingError: (state) => {
-		state.flashing = true
+		state.flashingError = true
 	},
 	setTimeLeft: (state, action) => {
 		state.timeLeft = action.payload

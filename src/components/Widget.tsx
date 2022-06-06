@@ -10,7 +10,7 @@ import Options from './Options'
 
 import './Widget.css'
 
-type Props = {
+export type Props = {
 	name:string
 }
 

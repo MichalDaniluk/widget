@@ -4,10 +4,10 @@ import { useAppSelector, useAppDispatch } from '../app/hooks'
 import { setTimeLeft } from '../features/lightLevel/lightLevelSlice'
 import { Fetcher } from '../utils/Fetcher'
 
-function TimeLeft() {
+const TimeLeft:React.FC = () => {
 
 	const apiUrl = useAppSelector(state => state.lightLevels.apiUrl)
-	const [time, setTime] = useState(useAppSelector(state => state.lightLevels.timeLeft))
+	const time = useAppSelector(state => state.lightLevels.timeLeft)
 	const [error, setError] = useState(false)
 	const dispatch = useAppDispatch()
 

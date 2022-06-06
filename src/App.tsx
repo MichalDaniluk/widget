@@ -9,7 +9,7 @@ const App = () => {
   return (
 
     <div className="App">
-		<div className="panel">
+		<div className="panel" data-testid="app">
 			<Widget name="HT8"/>
 			<Widget name="HT8" />
 			<Widget name="HT8" />
