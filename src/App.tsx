@@ -1,13 +1,24 @@
-import React from 'react';
+import React from 'react'
 
-import MainContainer from './components/MainContainer'
+import Widget from './components/Widget'
 
 import './App.css';
 
-function App() {
+const App = () => {
+
   return (
+
     <div className="App">
-		<MainContainer />
+		<div className="panel">
+			<Widget name="HT8"/>
+			<Widget name="HT8" />
+			<Widget name="HT8" />
+			<Widget name="HT8" />
+			<Widget name="HT8" />
+			<Widget name="HT8" />
+			<Widget name="HT8" />
+			<Widget name="HT8" />
+		</div>
     </div>
   );
 }
