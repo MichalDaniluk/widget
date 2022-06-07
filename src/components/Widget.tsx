@@ -24,7 +24,7 @@ const Widget:React.FC<Props> = ( {name} ) => {
 
   return (
 	<Provider store={store} >
-	<div className="main-container">
+	<div className="main-container" data-testid="widget">
 		<div className="panel-left">
 			<span className="widget-name">{name}</span>
 			<IntensityForm />
