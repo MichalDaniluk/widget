@@ -1,5 +1,3 @@
-import { useAppSelector, useAppDispatch } from '../app/hooks'
-import { setDuskTillDawn, setDuskTillDawnError } from '../features/lightLevel/lightLevelSlice'
 import { Fetcher } from '../utils/Fetcher'
 
 export const toggleOption = (status:boolean):boolean => {
