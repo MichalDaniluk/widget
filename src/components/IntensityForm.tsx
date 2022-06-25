@@ -1,52 +1,62 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 
 import { useAppSelector, useAppDispatch } from '../app/hooks'
-
 import { increaseLevel, deacreaseLevel } from '../features/lightLevel/lightLevelSlice'
-import { Fetcher } from '../utils/Fetcher'
-import { getLevels } from '../utils/Common'
+import { getLevels, getData } from '../utils/Common'
 
-function IntensityForm() {
+const IntensityForm = ({showError, clearError}:any) => {
 
-	const apiUrl = useAppSelector(state => state.lightLevels.apiUrl)
 	const dispatch = useAppDispatch()
 	const levels = getLevels()
 
-	const [index, setIndex] = useState(useAppSelector(state => state.lightLevels.index))
+	const index = useAppSelector(state => state.lightLevels.index)
 
 	const increase = () => {
 
-		Fetcher.fetchTimeout( apiUrl + "/increaselight", 5000 )
-		.then(response => response.json())
-		.then(()=>dispatch(increaseLevel()))
+		clearError()
+		getData('increase-light-level')
+		.then(() => {
+			dispatch(increaseLevel())
+			clearTimeout(time)
+			clearError()
+		})
 		.catch(() => {
-			dispatch(increaseLevel()) // for test only
-			//alert('Nie mozna zwiekszyc wartosci, brak powierdzenia z urzadzenia')
-		});
+			showError(1)
+		})
+
+		const time = setTimeout(() => {
+			showError(0)
+		},5000)
+
 	}
 
 	const decrease = () => {
-
-		Fetcher.fetchTimeout( apiUrl + "/decreaselight", 5000 )
-		.then(response => response.json())
-		.then(()=>dispatch(deacreaseLevel()))
+		clearError()
+		getData('decrease-light-level')
+		.then(() => {
+			dispatch(deacreaseLevel())
+			clearTimeout(time)
+		})
 		.catch(() => {
-			dispatch(deacreaseLevel()) // for test only
-			//alert('Nie mozna zmniejszyc wartosci, brak powierdzenia z urzadzenia')
-		});
-	}
+			showError(2)
+		})
 
+		const time = setTimeout(() => {
+			showError(0)
+		},5000)
+
+	}
 
   return (
 	<div className="intensity-form" data-testid="intensity-form">
 		<div>
-			<button className="button button-increase" onClick={() => { increase() }}> + </button>
+			<button className="button button-increase" onClick={ ()=>increase() }> + </button>
 		</div>
 		<div className="button label-light-level">
 			{levels[index]}%
 		</div>
 		<div>
-			<button className="button button-decrease" onClick={ () => { decrease() }} > - </button>
+			<button className="button button-decrease" onClick={ ()=>decrease() } > - </button>
 		</div>
 	</div>
   )
