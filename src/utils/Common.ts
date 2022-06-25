@@ -14,10 +14,31 @@ export const getApiPath = (): string => {
 
 export const setSwitchStatusFromDevice = (status:boolean, apiUrl:string, dispatch:Function, action:Function, actionError:Function) => {
 
-	Fetcher.fetchTimeout( `${apiUrl}/${status}`, 5000 )
-	.then(response => response.json())
-	.then(()=> dispatch(action(status)))
-	.catch(() => {
-		dispatch(actionError())
-	});
+		getData(`apiUrl/${status}`)
+		.then(() => {
+			dispatch(action(status))
+			clearTimeout(time)
+		})
+		.catch(() => {
+			dispatch(actionError())
+		})
+
+		const time = setTimeout(() => {
+			dispatch(actionError())
+		},5000)
+}
+
+export const simulateResponse = () => {
+	return new Promise((resolve, reject) => {
+		resolve({
+			response: 'OK'
+		})
+	})
+}
+
+export const getData = (param:string) => {
+	//const apiUrl = useAppSelector(state => state.lightLevels.apiUrl)
+	//const data = fetch( `${apiUrl}/${param}` )
+	const data = simulateResponse()
+	return data
 }
