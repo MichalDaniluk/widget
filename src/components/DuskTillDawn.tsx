@@ -20,7 +20,7 @@ const DaskTillDawn = () => {
 	}
 
   return (
-	<Switch title="Dusk Till Dawn" error={error} currentStatus={currentStatus} SetSwitch={setSwitch} />
+	<Switch title="Dusk Till Dawn" error={error} currentStatus={currentStatus}  />
   )
 }
 

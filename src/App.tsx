@@ -1,6 +1,6 @@
 import React from 'react'
 
-import Widget from './components/Widget'
+import Widget from './components/Widget/Widget'
 
 import './App.css';
 

@@ -12,6 +12,7 @@ export const lightLevelSlice = createSlice({
 	flashingError:false,
 	timeLeft:0,
 	timeLeftError:false,
+	errorInfo:'',
 	apiUrl:'https://backend.dev'
   },
   reducers: {
@@ -44,10 +45,13 @@ export const lightLevelSlice = createSlice({
 	},
 	setNightVisionError: (state) => {
 		state.nightVisionError = true
+	},
+	setErrorInfo: (state, action) => {
+		state.errorInfo = action.payload
 	}
   },
 });
 
-export const { increaseLevel, deacreaseLevel, setNightVision, setDuskTillDawn, setDuskTillDawnError, setFlashing, setFlashingError, setTimeLeft, setTimeLeftError, setNightVisionError } = lightLevelSlice.actions;
+export const { increaseLevel, deacreaseLevel, setNightVision, setDuskTillDawn, setDuskTillDawnError, setFlashing, setFlashingError, setTimeLeft, setTimeLeftError, setNightVisionError, setErrorInfo } = lightLevelSlice.actions;
 
 export default lightLevelSlice.reducer;

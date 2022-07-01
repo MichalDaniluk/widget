@@ -29,6 +29,12 @@
 	padding-right:0 !important;
 }
 
+.disabled {
+	cursor: not-allowed;
+    pointer-events: none;
+	background-color:#7496c4;
+}
+
 .button-decrease {
 	background-color:#cacfd9;
 }
